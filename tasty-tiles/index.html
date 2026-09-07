@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#078fe9" />
+  <meta name="description" content="Pick uncovered food tiles, match three, and keep your seven-slot tray clear." />
+  <title>Tasty Tiles · Tap &amp; Match</title>
+  <style>html,body{margin:0;background:#078fe9}.game-shell{visibility:hidden}.app-ready .game-shell{visibility:visible}</style>
+  <script type="module" crossorigin src="./assets/index-CraFzysd.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/phaser-0RJB29YE.js">
+  <link rel="stylesheet" crossorigin href="./assets/index-BmjbbxUU.css">
+</head>
+<body>
+  <main class="game-shell" aria-label="Food tile matching game">
+    <div class="generated-background" aria-hidden="true"></div>
+    <header class="game-hud">
+      <div class="level-readout"><span id="level-label">Level 1</span></div><div class="coin-readout" aria-label="Coins"><img src="./assets/icon_coin_gold_hud-BxhLeoMm.png" width="48" height="48" alt="" aria-hidden="true" /><strong id="coin-balance">0</strong></div>
+      <button id="settings-open" class="circle-button" aria-label="Open settings"><img src="./assets/ui_button_settings_01_403-BRQApE3T.png" width="65" height="65" alt="" aria-hidden="true" /></button>
+    </header>
+    <div id="game" role="application" aria-label="Food tiles. Arrow keys to choose an uncovered tile. Enter or Space to pick."><span class="loading">Preparing game board…</span></div>
+    <div class="boosters" aria-label="Boosters">
+      <button id="undo" class="booster" disabled aria-label="Undo"><img src="./assets/ui_button_undo_01_399-DNqWFadr.png" width="65" height="65" alt="" aria-hidden="true" /><span id="undo-badge" class="booster-badge booster-badge--free" data-source="free">FREE</span></button>
+      <button id="hint" class="booster" aria-label="Hint"><img src="./assets/ui_button_hint_01_401-BwEOyJxp.png" width="65" height="65" alt="" aria-hidden="true" /><span id="hint-badge" class="booster-badge booster-badge--free" data-source="free">FREE</span></button>
+      <button id="shuffle" class="booster" aria-label="Shuffle"><img src="./assets/ui_button_shuffle_01_402-CnMYGM0a.png" width="65" height="65" alt="" aria-hidden="true" /><span id="shuffle-badge" class="booster-badge booster-badge--free" data-source="free">FREE</span></button>
+    </div>
+    <div class="sr-only" aria-live="polite"><span id="remaining">0</span> matches remaining. <span id="tray-count">0 / 7</span> tray slots filled.</div>
+    <div class="progress-track sr-only" role="progressbar" aria-label="Level progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="progress-fill"></div></div>
+    <p id="feedback" class="feedback" role="status" aria-live="polite">Three of a kind. Seven little spaces.</p>
+  </main>
+  <section class="orientation-gate" role="alertdialog" aria-modal="true" aria-labelledby="orientation-title" aria-describedby="orientation-description">
+    <div class="orientation-gate__icon" aria-hidden="true">↻</div>
+    <h1 id="orientation-title">Rotate your device</h1>
+    <p id="orientation-description">Turn your device upright to keep every food tile easy to see and tap.</p>
+  </section>
+  <dialog id="result-dialog" class="popup result-popup"><div class="result-content"><div id="lose-cooldown" class="lose-cooldown" hidden aria-label="5 seconds left to revive"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="lose-cooldown__track" cx="50" cy="50" r="42"></circle><circle id="lose-cooldown-ring" class="lose-cooldown__ring" cx="50" cy="50" r="42"></circle></svg><strong id="lose-cooldown-count">5</strong></div><span class="popup-art" id="result-symbol" aria-hidden="true">✦</span><span class="eyebrow" id="result-eyebrow">FRESHLY MATCHED</span><h2 id="result-title">Delicious!</h2><p id="result-description">Every little tile found its trio.</p><p id="result-reward" class="win-reward" hidden aria-live="polite"></p><button id="result-revive" class="primary-button revive-button" hidden disabled><span>Hồi sinh</span><span id="result-revive-badge" class="revive-button__badge">5</span></button><button id="result-double-reward" class="primary-button win-double-reward" hidden disabled><span>×2 Reward</span><img src="./assets/icon_rewarded_ad_flat-EtYzKQ-Z.png" width="26" height="22" alt="" aria-hidden="true" /></button><button id="result-primary" class="primary-button">Next level</button><button id="result-undo" class="text-button" hidden>Undo the last tile</button></div></dialog>
+  <dialog id="settings-dialog" class="popup settings"><button id="settings-close" class="close-button" aria-label="Close settings">×</button><span class="eyebrow">MAKE YOURSELF AT HOME</span><h2>Settings</h2><label class="setting-row"><span class="setting-label"><img class="setting-icon" src="./assets/music-Bacs4cmr.png" width="36" height="36" alt="" aria-hidden="true" />Music</span><input id="music-toggle" type="checkbox" role="switch" aria-label="Music" /></label><label class="setting-row"><span class="setting-label"><img class="setting-icon" src="./assets/sound-msWyoZDu.png" width="36" height="36" alt="" aria-hidden="true" />Sound</span><input id="sound-toggle" type="checkbox" role="switch" aria-label="Sound effects" /></label><button id="restart" class="primary-button">Restart level</button><p>Progress saves on this device.</p></dialog>
+</body>
+</html>
