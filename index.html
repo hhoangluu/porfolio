@@ -13,11 +13,11 @@
   Settle that before anyone runs due diligence on the repo.
   ============================================================
 --><title>Breach Games — Independent Game Studio</title>
-<meta name="description" content="Breach Games is an independent game studio in Vietnam making puzzle games that are a joy to play — shipped on browser today, built on stacks that reach mobile.">
+<meta name="description" content="Breach Games is an independent game studio in Vietnam creating puzzle and card games for browsers and Android. Explore our playable games and Google Play releases.">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Breach Games — Independent Game Studio">
-<meta property="og:description" content="An independent game studio in Vietnam. Two shipped titles: Mahjong Zen, a mahjong solitaire built for accessibility, and DeCypher, a language-detective puzzle game.">
+<meta property="og:description" content="Discover Mahjong Zen, Tasty Tiles, DeCypher, and our Android releases: Fantasy solitaire sort, Arrow Out, and Corgiku.">
 <meta property="og:image" content="assets/cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -156,6 +156,32 @@
   }
   .frame img{max-height:100%;width:auto}
 
+  /* ---------- game platform tabs ---------- */
+  [hidden]{display:none!important}
+  .games-heading{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+  .game-tabs{display:flex;gap:28px}
+  .game-tab{border:0;border-bottom:2px solid transparent;padding:14px 4px;min-height:48px;font:600 15px/1.2 var(--sans);color:var(--ivory-dim);background:transparent;cursor:pointer}
+  .game-tab[aria-selected="true"]{border-bottom-color:var(--gold);color:var(--gold)}
+  .game-tab:hover{color:var(--ivory)}
+  .game-tab:focus-visible{outline:2px solid var(--ivory);outline-offset:3px}
+  .games-catalog{padding-bottom:0}
+  .game-panel{scroll-margin-top:84px}
+  .game-panel>section:first-child{border-top:0;padding-top:40px}
+  #studio .ip{margin-top:0}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+  @media(max-width:480px){.games-heading{gap:16px}.games-heading h2{font-size:28px}.game-tabs{gap:18px}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+  /* ---------- Android games ---------- */
+  .mobile-games{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:34px}
+  .mobile-game{display:flex;flex-direction:column;padding:28px;background:var(--felt-soft);border:1px solid var(--line);border-radius:12px}
+  .mobile-game img{width:104px;height:104px;border-radius:22px;margin-bottom:24px}
+  .mobile-game h3{font-size:25px;line-height:1.2;margin-bottom:14px}
+  .mobile-game p{color:var(--ivory-dim);font-size:16px;margin-bottom:24px}
+  .mobile-game .tags{margin:0 0 20px}
+  .mobile-game .btn{margin-top:auto;line-height:1.3}
+  @media(max-width:860px){.mobile-games{grid-template-columns:1fr}}
+
   /* ---------- evidence ---------- */
   .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:34px}
   @media(max-width:900px){ .cards{grid-template-columns:repeat(2,1fr)} }
@@ -196,11 +222,13 @@
 
 
   /* ---------- team ---------- */
-  .people{margin-top:34px;max-width:62ch}
-  .person{border-left:2px solid var(--gold-soft);padding:4px 0 4px 18px}
-  .person .name{font-family:var(--serif);font-size:20px}
-  .person .role{color:var(--gold);font-size:14px;font-weight:600;margin:4px 0 8px}
+  .people{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:34px}
+  .person{padding:28px;border:1px solid var(--line);border-radius:12px;background:var(--felt-soft)}
+  .person .monogram{display:grid;place-items:center;width:52px;height:52px;margin-bottom:24px;border:1px solid var(--line);border-radius:50%;font:600 20px/1 var(--serif);color:var(--gold);background:var(--felt-deep)}
+  .person .name{font-family:var(--serif);font-size:24px;line-height:1.25}
+  .person .role{color:var(--gold);font-size:14px;font-weight:600;margin:8px 0 16px}
   .person .bio{color:var(--ivory-dim);font-size:15px;margin:0}
+  @media(max-width:860px){.people{grid-template-columns:1fr}}
   .caps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px}
   @media(max-width:860px){ .caps{grid-template-columns:1fr} }
   .cap{background:var(--felt-soft);border:1px solid var(--line);border-radius:10px;padding:24px}
@@ -237,18 +265,15 @@
 <section class="hero" id="top">
   <div class="wrap hero-grid">
     <div>
-      <p class="eyebrow">Independent Game Team · Vietnam</p>
-      <h1>We make games that are a joy to play, for anyone who wants to play them.</h1>
+      <p class="eyebrow">Breach Games · Independent Game Studio</p>
+      <h1>Puzzle games for web and mobile.</h1>
       <p class="sub">
-        An independent studio in Vietnam with two finished titles: a mahjong
-        solitaire built so an older player can read it at a glance, and a
-        language-detective puzzle for people who like being told nothing. Both
-        run in a browser today, on stacks — Phaser 3 and Unity — that reach
-        mobile and app stores without starting over.
+        We develop and publish puzzle and card games from our studio in Vietnam,
+        with a focus on accessible gameplay, thoughtful design and reliable performance.
       </p>
       <div class="btns">
-        <a class="btn btn-primary" href="play/" target="_blank" rel="noopener">Play Mahjong Zen</a>
-        <a class="btn btn-ghost" href="#contact">Contact the Team</a>
+        <a class="btn btn-primary" href="#game">Explore Our Games</a>
+        <a class="btn btn-ghost" href="#contact">Contact Us</a>
       </div>
     </div>
     <div class="hero-art">
@@ -258,8 +283,20 @@
   </div>
 </section>
 
+<!-- ============ GAME PORTFOLIO ============ -->
+<section id="game" class="games-catalog" aria-labelledby="games-title">
+  <div class="wrap">
+    <div class="games-heading">
+      <h2 id="games-title">Our Games</h2>
+      <div class="game-tabs" role="tablist" aria-label="Game platform">
+        <button class="game-tab" type="button" id="web-tab" role="tab" aria-selected="true" aria-controls="web-games" tabindex="0">Web</button>
+        <button class="game-tab" type="button" id="mobile-tab" role="tab" aria-selected="false" aria-controls="mobile-games" tabindex="-1">Mobile</button>
+      </div>
+    </div>
+  </div>
+  <div id="web-games" class="game-panel" role="tabpanel" aria-labelledby="web-tab" tabindex="0">
 <!-- ============ 2. FEATURED GAME ============ -->
-<section id="game">
+<section id="mahjong-zen">
   <div class="wrap">
     <p class="eyebrow">Featured Title · Playable Now</p>
     <h2 class="game-name">Mahjong Zen</h2>
@@ -339,8 +376,7 @@
   </div>
 </section>
 
-<!-- ============ 3. SECOND TITLE + STUDIO-LEVEL RIGHTS ============ -->
-<section id="studio">
+<section id="decypher">
   <div class="wrap">
     <div class="also">
       <div class="also-copy">
@@ -376,8 +412,48 @@
         <img src="assets/dc-key.jpg" alt="DeCypher key art — a pale hand over a wall of photographs, red thread and puzzle pieces carrying Chinese characters" loading="lazy">
       </div>
     </div>
+  </div>
+</section>
+  </div>
+  <div id="mobile-games" class="game-panel" role="tabpanel" aria-labelledby="mobile-tab" tabindex="0" hidden>
+<!-- ============ ANDROID RELEASES ============ -->
+<section id="android-games" aria-labelledby="android-games-title">
+  <div class="wrap">
+    <p class="eyebrow">Android · Available on Google Play</p>
+    <h2 id="android-games-title" class="sr-only">Mobile Games</h2>
+    <div class="mobile-games">
+      <article class="mobile-game" aria-labelledby="fantasy-sort-title">
+        <img src="assets/fantasy-solitaire-sort.webp" width="240" height="240" loading="lazy" alt="Fantasy solitaire sort app icon">
+        <ul class="tags"><li>Android</li><li>Card</li></ul>
+        <h3 id="fantasy-sort-title">Fantasy solitaire sort</h3>
+        <p>Sort magical cards and merge fantasy creatures in a card puzzle full of new discoveries.</p>
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.breachgames.fantasymerge" target="_blank" rel="noopener" aria-label="Get Fantasy solitaire sort on Google Play">Get on Google Play</a>
+      </article>
+      <article class="mobile-game" aria-labelledby="arrow-out-title">
+        <img src="assets/arrow-out.webp" width="240" height="240" loading="lazy" alt="Arrow Out app icon">
+        <ul class="tags"><li>Android</li><li>Casual</li></ul>
+        <h3 id="arrow-out-title">Arrow Out</h3>
+        <p>Find the right sequence, tap the arrows, and clear the board in a relaxing puzzle of order and logic.</p>
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.breachgames.arrowout" target="_blank" rel="noopener" aria-label="Get Arrow Out on Google Play">Get on Google Play</a>
+      </article>
+      <article class="mobile-game" aria-labelledby="corgiku-title">
+        <img src="assets/corgiku.webp" width="240" height="240" loading="lazy" alt="Corgiku app icon">
+        <ul class="tags"><li>Android</li><li>Puzzle</li></ul>
+        <h3 id="corgiku-title">Corgiku</h3>
+        <p>A cozy logic puzzle: fill every row, column and region through deduction, with no guessing needed.</p>
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.breachgames.corgiku" target="_blank" rel="noopener" aria-label="Get Corgiku on Google Play">Get on Google Play</a>
+      </article>
+    </div>
+    <p class="note"><a href="https://play.google.com/store/apps/dev?id=7414765298523621811" target="_blank" rel="noopener">View Breach Games Studio on Google Play →</a></p>
+  </div>
+</section>
 
+  </div>
+</section>
 
+<!-- ============ STUDIO ============ -->
+<section id="studio">
+  <div class="wrap">
     <div class="ip">
       <h3>Rights and provenance</h3>
       <p>
@@ -418,31 +494,37 @@
 <section id="team">
   <div class="wrap">
     <p class="eyebrow">Team</p>
-    <h2>One person, shipped end to end.</h2>
+    <h2>Our Team</h2>
     <p class="note" style="margin-top:18px">
-      Breach Games is an independent studio in Vietnam, run by one person.
-      Mahjong Zen was taken from prototype to launch build without handing any
-      part of it off — code, level generation, art direction, audio, licence
-      clearance and portal integration. That is a deliberate way to work, not a
-      gap waiting to be filled: it keeps the whole game in one head and the
-      pipeline reproducible. The other credit here is a different shape: on
-      DeCypher, the game is co-owned with its founder An Phan and the lead
-      development role was ours.
-      The goal all of this is pointed at is straightforward — to run games that
-      millions of people play every day.
+      Breach Games is a founder-led studio based in Vietnam. We bring together
+      game development, design and production to take projects from prototype
+      to release across browser and mobile platforms. Our work includes in-house
+      titles and development partnerships, including DeCypher with An Phan.
     </p>
 
     <div class="people">
-      <div class="person">
-        <div class="name">Nguyễn Hoàng Lưu</div>
+      <article class="person">
+        <div class="monogram" aria-hidden="true">L</div>
+        <h3 class="name">Nguyễn Hoàng Lưu</h3>
         <div class="role">Founder · Developer · Product</div>
         <p class="bio">5+ years building, optimising and shipping casual games.
-          Founder of Breach Games and owner of Mahjong Zen; co-owner and lead
-          developer on DeCypher (Unity WebGL), founded with An Phan. On Mahjong Zen: the
-          Phaser client, the level generator and its difficulty harness, the art
-          and audio pipelines, the portal SDK and analytics integrations, and
-          the asset licence register.</p>
-      </div>
+          Founder of Breach Games, creator of Mahjong Zen, and co-owner and
+          lead developer of DeCypher with An Phan.</p>
+      </article>
+      <article class="person">
+        <div class="monogram" aria-hidden="true">V</div>
+        <h3 class="name">Vex</h3>
+        <div class="role">Game Designer</div>
+        <p class="bio">Game mechanics, level design and balancing. Focused on
+          clear rules, satisfying progression and engaging puzzle experiences.</p>
+      </article>
+      <article class="person">
+        <div class="monogram" aria-hidden="true">N</div>
+        <h3 class="name">Nyx</h3>
+        <div class="role">Game Artist</div>
+        <p class="bio">Game visuals, UI and asset design. Focused on a cohesive
+          art style, readable gameplay and polished presentation.</p>
+      </article>
     </div>
 
     <div class="caps">
@@ -505,6 +587,54 @@
     <p>Mahjong Zen is developed and operated by Breach Games.</p>
   </div>
 </footer>
+
+<script>
+  (function () {
+    var tabs = Array.from(document.querySelectorAll('.game-tab'));
+    var panels = tabs.map(function (tab) { return document.getElementById(tab.getAttribute('aria-controls')); });
+    var video = document.getElementById('demo');
+    function selectTab(index) {
+      tabs.forEach(function (tab, i) {
+        tab.setAttribute('aria-selected', String(i === index));
+        tab.tabIndex = i === index ? 0 : -1;
+        panels[i].hidden = i !== index;
+      });
+      if (index === 1 && video) video.pause();
+    }
+    function syncHash() {
+      var target = document.getElementById(location.hash.slice(1));
+      if (!target) return;
+      if (target.id === 'game') selectTab(0);
+      panels.forEach(function (panel, index) {
+        if (panel.contains(target)) selectTab(index);
+      });
+    }
+    function activate(index) {
+      selectTab(index);
+      history.pushState(null, '', '#' + panels[index].id);
+    }
+    tabs.forEach(function (tab, index) {
+      tab.addEventListener('click', function () { activate(index); });
+      tab.addEventListener('keydown', function (event) {
+        var next;
+        if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+        else if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
+        else if (event.key === 'Home') next = 0;
+        else if (event.key === 'End') next = tabs.length - 1;
+        else return;
+        event.preventDefault();
+        activate(next);
+        tabs[next].focus();
+      });
+    });
+    window.addEventListener('hashchange', syncHash);
+    window.addEventListener('popstate', function () {
+      if (!location.hash) selectTab(0);
+      else syncHash();
+    });
+    syncHash();
+  })();
+</script>
 
 <script>
   // The clip sits below the fold: don't fetch it until it is on
