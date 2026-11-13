@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes, viewport-fit=cover">
+    <title>Dragon Survivor</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <style>
+      html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #0b0d16; touch-action: none; -webkit-user-select: none; user-select: none; }
+      #game { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: #000; }
+      #game canvas { display: block; width: 100%; height: 100%; outline: none; }
+      #loading { position: absolute; left: 12%; right: 12%; top: 58%; height: 10px; border: 2px solid #f2e6c9; background: #1c1f30; image-rendering: pixelated; }
+      #loading-fill { width: 0; height: 100%; background: #f2c14e; }
+      #message { position: absolute; left: 0; right: 0; bottom: 0; color: #fff; font: 14px sans-serif; text-align: center; }
+      #message div { padding: 8px; }
+    </style>
+  </head>
+  <body>
+    <div id="game">
+      <canvas id="unity-canvas" tabindex="-1"></canvas>
+      <div id="loading"><div id="loading-fill"></div></div>
+      <div id="message"></div>
+    </div>
+    <script>
+      // Load journey for analytics (read by Unity through FalconLoad.jslib once the boot scene runs): when this page
+      // script started, when the build download finished, and page errors before Unity could report them.
+      // Times are performance.now() milliseconds since the page navigation started.
+      var falconLoad = window.falconLoad = { page_ms: Math.round(performance.now()), download_ms: -1, errors: 0, error: "" };
+      window.addEventListener("error", function (e) {
+        falconLoad.errors++;
+        if (!falconLoad.error) falconLoad.error = String((e && e.message) || "error").slice(0, 80);
+      });
+
+      // Portrait game box: the aspect flexes between 9:21 (tall phones) and 3:4 (tablets); outside that
+      // range the box is letterboxed. The world is drawn on a 540x960 pixel grid at an integer zoom and
+      // bigger boxes simply see more world (user decision 2026-10-11; see recovery/pixel-render-20261010).
+      var game = document.getElementById("game");
+      var canvas = document.getElementById("unity-canvas");
+      var loading = document.getElementById("loading");
+      var loadingFill = document.getElementById("loading-fill");
+      var message = document.getElementById("message");
+      var MIN_ASPECT = 9 / 21, MAX_ASPECT = 3 / 4;
+      var NATIVE_W = 540, NATIVE_H = 960, MAX_VISIBLE = 1.4;
+      var query = new URLSearchParams(location.search);
+      var dprOverride = parseFloat(query.get("dpr"));   // dev: emulate a device pixel ratio
+
+      function fit() {
+        var w = window.innerWidth, h = window.innerHeight;
+        if (w / h > MAX_ASPECT) w = Math.round(h * MAX_ASPECT); else if (w / h < MIN_ASPECT) h = Math.round(w / MIN_ASPECT);
+        game.style.width = w + "px";
+        game.style.height = h + "px";
+      }
+      window.addEventListener("resize", fit);
+      fit();
+
+      // Integer-zoom rule of PixelGridPresenter: k = floor(min(W/540, H/960)); the grid ceil(W/k) x ceil(H/k)
+      // must stay within MAX_VISIBLE of the native field. Use the highest device pixel ratio (up to 3) for
+      // which that holds; otherwise keep the previous cap of 2 (the game then falls back to the Sharp grid).
+      function integerZoomFits(w, h) {
+        var k = Math.floor(Math.min(w / NATIVE_W, h / NATIVE_H));
+        if (k < 1) return false;
+        return Math.ceil(w / k) <= NATIVE_W * MAX_VISIBLE + 0.5 && Math.ceil(h / k) <= NATIVE_H * MAX_VISIBLE + 0.5;
+      }
+      function pickDevicePixelRatio() {
+        var device = window.devicePixelRatio || 1;
+        var w = parseFloat(game.style.width), h = parseFloat(game.style.height);
+        var candidates = [3, 2, 1];
+        for (var i = 0; i < candidates.length; i++) {
+          var dpr = candidates[i];
+          if (dpr > device + 0.01) continue;
+          if (integerZoomFits(Math.round(w * dpr), Math.round(h * dpr))) return dpr;
+        }
+        return Math.min(device, 2);
+      }
+
+      function showBanner(msg, type) {
+        var div = document.createElement("div");
+        div.textContent = msg;
+        div.style.background = type == "error" ? "#b00020" : "#8a6d00";
+        message.appendChild(div);
+        if (type != "error") setTimeout(function () { message.removeChild(div); }, 5000);
+      }
+
+      // Texture-format variant: the build ships one data file per texture compression format (phone/web test page).
+      // CrazyGames ignores this page and serves the single data file of a one-variant build.
+      // ASTC for browsers that expose it (mobile, Apple silicon), DXT/BC otherwise (desktop).
+      // "?tex=astc" or "?tex=dxt" forces a variant for testing.
+      function pickTextureVariant() {
+        var forced = /[?&]tex=(astc|dxt)\b/.exec(location.search);
+        if (forced) return forced[1];
+        try {
+          var probe = document.createElement("canvas");
+          var gl = probe.getContext("webgl2") || probe.getContext("webgl");
+          if (!gl) return "dxt";
+          var astc = !!gl.getExtension("WEBGL_compressed_texture_astc");
+          var lose = gl.getExtension("WEBGL_lose_context");
+          if (lose) lose.loseContext();
+          return astc ? "astc" : "dxt";
+        } catch (e) { return "dxt"; }
+      }
+      var textureVariant = pickTextureVariant();
+      window.falconTextureVariant = textureVariant;
+
+      var buildUrl = "Build";
+      var dxtData = buildUrl + "/0b4f270a313764eb8aaf9b7f0404618f.data.br";
+
+      // The ASTC data file: the CrazySDK release build lists it in crazygames_build_report.json ("astc_<hash>"); the
+      // phone build pairs it as "<name>-astc.data" with packs in StreamingAssets-astc. A missing file falls back to DXT.
+      // TEXTURE_VARIANTS (Player Settings > template variable): "crazygames" (project default) = a CrazySDK release
+      // with per-texture-format data files to look up; "single" (the "CrazyGames Test" build profile) = one build whose
+      // data file is the only one, loaded as is.
+      var textureVariants = "crazygames";
+      function resolveTextureData(done) {
+        if (textureVariant != "astc" || textureVariants != "crazygames") { done(dxtData, "StreamingAssets"); return; }
+        function exists(url) {
+          return fetch(url, { method: "HEAD" }).then(function (r) { return r.ok; }).catch(function () { return false; });
+        }
+        fetch("crazygames_build_report.json")
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .catch(function () { return null; })
+          .then(function (report) {
+            var files = (report && report.generatedFiles) || [];
+            for (var i = 0; i < files.length; i++) {
+              if (files[i].type !== "data_astc") continue;
+              var listed = buildUrl + "/" + files[i].filename;
+              return exists(listed).then(function (ok) { return ok ? [listed, "StreamingAssets"] : null; });
+            }
+            var paired = dxtData.replace(/\.data(\.|$)/, "-astc.data$1");
+            return exists(paired).then(function (ok) { return ok ? [paired, "StreamingAssets-astc"] : null; });
+          })
+          .then(function (picked) {
+            if (!picked) { textureVariant = window.falconTextureVariant = "dxt"; done(dxtData, "StreamingAssets"); return; }
+            done(picked[0], picked[1]);
+          });
+      }
+
+      var config = {
+        dataUrl: dxtData,
+        frameworkUrl: buildUrl + "/aca5937612668b118e8a25f1920abaaf.framework.js.br",
+        codeUrl: buildUrl + "/fdb92158bee71a47cdc179e1a437b584.wasm.br",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "Breach Games",
+        productName: "Dragon Survivor",
+        productVersion: "1.1.7",
+        showBanner: showBanner,
+        // Local saves under Application.persistentDataPath persist in IndexedDB without a manual FS sync.
+        autoSyncPersistentDataPath: true,
+        // Backing-store resolution: the highest DPR (<= 3) where the integer pixel-grid zoom applies, else cap 2.
+        devicePixelRatio: isFinite(dprOverride) && dprOverride > 0 ? dprOverride : pickDevicePixelRatio(),
+      };
+
+      // ?fps=1 dev overlay: requestAnimationFrame frame times, average fps over the last second, p50/p95 frame
+      // time over the last 10 s, the pixel grid reported by PixelGridPresenter and the DPR in use.
+      // window.falconFps.summary(seconds) returns the same numbers for scripted measurements.
+      if (query.get("fps") === "1") (function () {
+        var box = document.createElement("div");
+        box.style.cssText = "position:absolute;left:4px;top:4px;z-index:10;font:12px/1.3 monospace;color:#9f9;background:rgba(0,0,0,.6);padding:4px 6px;pointer-events:none;white-space:pre";
+        game.appendChild(box);
+        var frames = [], last = performance.now(), shown = 0;
+        function summary(seconds) {
+          var now = performance.now(), from = now - (seconds || 10) * 1000, dts = [];
+          for (var i = frames.length - 1; i >= 0 && frames[i].t >= from; i--) dts.push(frames[i].dt);
+          dts.sort(function (a, b) { return a - b; });
+          var sum = 0; for (var j = 0; j < dts.length; j++) sum += dts[j];
+          var pick = function (q) { return dts.length ? dts[Math.min(dts.length - 1, Math.floor(q * dts.length))] : 0; };
+          return { seconds: seconds || 10, frames: dts.length, fps: dts.length ? 1000 * dts.length / sum : 0,
+                   p50: pick(0.5), p95: pick(0.95), max: dts.length ? dts[dts.length - 1] : 0,
+                   grid: window.falconPixelGrid || "", dpr: config.devicePixelRatio,
+                   backing: canvas.width + "x" + canvas.height };
+        }
+        window.falconFps = { summary: summary, reset: function () { frames = []; } };
+        function tick(now) {
+          var dt = now - last; last = now;
+          frames.push({ t: now, dt: dt });
+          if (frames.length > 7200) frames.splice(0, frames.length - 7200);
+          if (now - shown > 500) {
+            shown = now;
+            var s1 = summary(1), s10 = summary(10);
+            box.textContent = "fps " + s1.fps.toFixed(0) + "  p50 " + s10.p50.toFixed(1) + " ms  p95 " + s10.p95.toFixed(1) + " ms\n" +
+              "backing " + s10.backing + "  dpr " + s10.dpr + "\n" + (s10.grid || "grid: n/a");
+          }
+          requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      })();
+
+      var script = document.createElement("script");
+      script.src = buildUrl + "/cf6b3044e681e18c17fc8358614836c0.loader.js";
+      script.onload = function () {
+        createUnityInstance(canvas, config, function (progress) {
+          loadingFill.style.width = 100 * progress + "%";
+          // The loader reports downloads up to 0.9; the rest is engine start-up.
+          if (progress >= 0.9 && falconLoad.download_ms < 0) falconLoad.download_ms = Math.round(performance.now());
+        }).then(function (instance) {
+          loading.style.display = "none";
+          window.unityInstance = instance;
+        }).catch(function (msg) {
+          showBanner(String(msg), "error");
+        });
+      };
+      resolveTextureData(function (dataUrl, streamingAssets) {
+        config.dataUrl = dataUrl;
+        config.streamingAssetsUrl = streamingAssets;
+        document.body.appendChild(script);
+      });
+    </script>
+  </body>
+</html>

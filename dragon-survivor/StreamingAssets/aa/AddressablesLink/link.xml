@@ -1,0 +1,274 @@
+<linker>
+  <assembly fullname="Battle.Lobby.Unity, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="FalconSurvivor.Battle.Lobby.Unity.MetaEquipmentMergeAudioBridge" preserve="all" />
+  </assembly>
+  <assembly fullname="Battle.Presentation, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="FalconSurvivor.Battle.Presentation.Audio.BattleAudioSettings" preserve="all" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Audio.SoundCatalog" preserve="all" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Background.BackgroundScrollView" preserve="all" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Characters.AnimatorListen" preserve="all" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Characters.CharacterAnimationView" preserve="all" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Characters.CharacterHitView" preserve="all" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Characters.ElarisRigView" preserve="all" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Effects.CombatEffectView" preserve="all" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Effects.CurveSwordEffectView" preserve="all" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Effects.DragonSkillFxSet" preserve="all" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Effects.RotateBallSpriteSequence" preserve="all" />
+    <type fullname="FalconSurvivor.Battle.Presentation.PixelGrid.ElarisSpriteTwinkle" preserve="all" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Projectiles.LaserMidView" preserve="all" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Projectiles.LaserPathView" preserve="all" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Projectiles.LaserSegmentView" preserve="all" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Projectiles.ProjectileLifeFade" preserve="all" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Projectiles.ProjectileLightningView" preserve="all" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Projectiles.ProjectileRemovalView" preserve="all" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Projectiles.ProjectileScaleView" preserve="all" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Projectiles.RotateLaserView" preserve="all" />
+    <type fullname="FalconSurvivor.Battle.Presentation.SkillSelection.SkillPresentationCatalog" preserve="all" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Views.LateViewCatalog" preserve="all" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Views.ViewAnimationBindings" preserve="all" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Views.ViewFirePointBindings" preserve="all" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Background.BackgroundLayerBinding" preserve="nothing" serialized="true" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Effects.DragonSkillFxSet/Group" preserve="nothing" serialized="true" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Characters.CharacterAnimationView/StateBinding" preserve="nothing" serialized="true" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Characters.ElarisRigView/Motion" preserve="nothing" serialized="true" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Characters.ElarisRigView/Part" preserve="nothing" serialized="true" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Characters.ElarisRigView/State" preserve="nothing" serialized="true" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Characters.ElarisRigView/StateFps" preserve="nothing" serialized="true" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Views.EntityViewBinding" preserve="nothing" serialized="true" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Views.ProjectileViewBinding" preserve="nothing" serialized="true" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Audio.CombatAudioBank/Entry" preserve="nothing" serialized="true" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Audio.SoundCatalog/AdditionalClip" preserve="nothing" serialized="true" />
+    <type fullname="FalconSurvivor.Battle.Presentation.Effects.CombatEffectBank/Entry" preserve="nothing" serialized="true" />
+    <type fullname="FalconSurvivor.Battle.Presentation.SkillSelection.SkillPresentationCatalog/Entry" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Meta.Arsenal.UI, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="FalconSurvivor.Meta.Arsenal.UI.AircraftSkillSlotView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Arsenal.UI.ArsenalFightersScreen" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Arsenal.UI.ArsenalPilotsScreen" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Arsenal.UI.ArsenalTabView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Arsenal.UI.ArsenalWeaponsScreen" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Arsenal.UI.LabRowView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Arsenal.UI.SkinSkillButtonView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Arsenal.UI.SkinSkillTipPopup" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Arsenal.UI.SkinSkillTipRowView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Arsenal.UI.WeaponCellView" preserve="all" />
+  </assembly>
+  <assembly fullname="Meta.Campaign.UI, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="FalconSurvivor.Meta.Campaign.UI.CampaignChestPopup" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Campaign.UI.CampaignChestView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Campaign.UI.CampaignScreen" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Campaign.UI.CampaignStarPopup" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Campaign.UI.CampaignStarRowView" preserve="all" />
+  </assembly>
+  <assembly fullname="Meta.CheckIn.UI, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="FalconSurvivor.Meta.CheckIn.UI.CheckInDayView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.CheckIn.UI.CheckInScreen" preserve="all" />
+  </assembly>
+  <assembly fullname="Meta.Equipment.UI, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="FalconSurvivor.Meta.Equipment.UI.CostRowView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Equipment.UI.EquipmentBagCellView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Equipment.UI.EquipmentDetailPopup" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Equipment.UI.EquipmentMergeAnimationData" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Equipment.UI.EquipmentMergeCanvasFit" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Equipment.UI.EquipmentMergeClipPlayer" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Equipment.UI.EquipmentMergeFlight" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Equipment.UI.EquipmentMergeMeshGraphic" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Equipment.UI.EquipmentMergeParticleGraphic" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Equipment.UI.EquipmentMergePresentation" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Equipment.UI.EquipmentMergeResultRow" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Equipment.UI.EquipmentMergeResultView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Equipment.UI.EquipmentMergeScreen" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Equipment.UI.EquipmentOneKeyPopup" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Equipment.UI.EquipmentQualityArt" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Equipment.UI.EquipmentScreen" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Equipment.UI.EquipmentSlotView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Equipment.UI.FeatureRowView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Equipment.UI.MaterialSlotView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Equipment.UI.PopupShell" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Equipment.UI.EquipmentMergeAnimationData/Sample" preserve="nothing" serialized="true" />
+    <type fullname="FalconSurvivor.Meta.Equipment.UI.EquipmentMergeAnimationData/Slot" preserve="nothing" serialized="true" />
+    <type fullname="FalconSurvivor.Meta.Equipment.UI.EquipmentMergeClipPlayer/Track" preserve="nothing" serialized="true" />
+    <type fullname="FalconSurvivor.Meta.Equipment.UI.EquipmentQualityArt/Entry" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Meta.Headquarters.UI, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="FalconSurvivor.Meta.Headquarters.UI.BestiaryEntryCellView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Headquarters.UI.BestiaryPortraits" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Headquarters.UI.BestiaryScreen" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Headquarters.UI.HeadquartersBuildingView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Headquarters.UI.HeadquartersScreen" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Headquarters.UI.BestiaryPortraits/Entry" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Meta.Patrol.UI, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="FalconSurvivor.Meta.Patrol.UI.PatrolPanelPresentation" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Patrol.UI.PatrolScreen" preserve="all" />
+  </assembly>
+  <assembly fullname="Meta.Quests.UI, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="FalconSurvivor.Meta.Quests.UI.QuestChestView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Quests.UI.QuestRowView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Quests.UI.QuestScreen" preserve="all" />
+  </assembly>
+  <assembly fullname="Meta.Shop.UI, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="FalconSurvivor.Meta.Shop.UI.GachaBoxCardView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Shop.UI.GoodsCardView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Shop.UI.GoodsTileView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Shop.UI.MilestoneView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Shop.UI.OddsRowView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Shop.UI.RotationBarView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Shop.UI.SectionHeaderView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Shop.UI.ShopOddsPopup" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Shop.UI.ShopScreen" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Shop.UI.GachaBoxCardView/BoxArt" preserve="nothing" serialized="true" />
+    <type fullname="FalconSurvivor.Meta.Shop.UI.GoodsCardView/FrameArt" preserve="nothing" serialized="true" />
+    <type fullname="FalconSurvivor.Meta.Shop.UI.GoodsTileView/TierArt" preserve="nothing" serialized="true" />
+    <type fullname="FalconSurvivor.Meta.Shop.UI.ShopScreen/SectionConfig" preserve="nothing" serialized="true" />
+    <type fullname="FalconSurvivor.Meta.Shop.UI.ShopScreen/TabLabel" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Meta.Talent.UI, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="FalconSurvivor.Meta.Talent.UI.TalentCardView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Talent.UI.TalentDrawButtonView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.Talent.UI.TalentScreen" preserve="all" />
+  </assembly>
+  <assembly fullname="Meta.UI.Kit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="FalconSurvivor.Meta.UI.CurrencyBarView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.UI.ItemCellView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.UI.LocalizationPack" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.UI.LocalizationTextDirection" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.UI.MetaSpriteCatalog" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.UI.PopupFrameView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.UI.PriceButtonView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.UI.RewardEntryView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.UI.RewardPopupView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.UI.SafeAreaFitter" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.UI.TabButtonView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.UI.ToastView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.UI.TutorialFingerGraphic" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.UI.TutorialSpotlightView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.UI.UiSoundButton" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.UI.UiSoundChannel" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.UI.MetaSpriteCatalog/IconEntry" preserve="nothing" serialized="true" />
+    <type fullname="FalconSurvivor.Meta.UI.MetaSpriteCatalog/QualityEntry" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Meta.UI.Lobby, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="FalconSurvivor.Meta.UI.BagPopupView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.UI.ContinueBattlePopup" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.UI.DevPanelView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.UI.MetaLobby" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.UI.NavTabView" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.UI.PlaytimeProgressMarker" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.UI.PlaytimeRewardPopup" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.UI.PlaytimeRewardSunrise" preserve="all" />
+    <type fullname="FalconSurvivor.Meta.UI.DevPanelView/Command" preserve="nothing" serialized="true" />
+    <type fullname="FalconSurvivor.Meta.UI.MetaLobby/SubScreenEntry" preserve="nothing" serialized="true" />
+    <type fullname="FalconSurvivor.Meta.UI.MetaLobby/TabEntry" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
+    <type fullname="UnityEngine.AddressableAssets.Addressables" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.AssetBundleProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.AtlasSpriteProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.BundledAssetProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.InstanceProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.SceneProvider" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="TMPro.TextMeshProUGUI" preserve="all" />
+    <type fullname="TMPro.TMP_Dropdown" preserve="all" />
+    <type fullname="TMPro.TMP_FontAsset" preserve="all" />
+    <type fullname="TMPro.FaceInfo_Legacy" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.FontAssetCreationSettings" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.KerningTable" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_FontFeatureTable" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_FontWeightPair" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_Dropdown/DropdownEvent" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_Dropdown/OptionData" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_Dropdown/OptionDataList" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.VertexGradient" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_Character" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Animation" preserve="all" />
+    <type fullname="UnityEngine.AnimationClip" preserve="all" />
+    <type fullname="UnityEngine.Animator" preserve="all" />
+    <type fullname="UnityEngine.RuntimeAnimatorController" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.AudioClip" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Camera" preserve="all" />
+    <type fullname="UnityEngine.GameObject" preserve="all" />
+    <type fullname="UnityEngine.Light" preserve="all" />
+    <type fullname="UnityEngine.LineRenderer" preserve="all" />
+    <type fullname="UnityEngine.Material" preserve="all" />
+    <type fullname="UnityEngine.Mesh" preserve="all" />
+    <type fullname="UnityEngine.MeshFilter" preserve="all" />
+    <type fullname="UnityEngine.MeshRenderer" preserve="all" />
+    <type fullname="UnityEngine.Object" preserve="all" />
+    <type fullname="UnityEngine.RectTransform" preserve="all" />
+    <type fullname="UnityEngine.Rendering.SortingGroup" preserve="all" />
+    <type fullname="UnityEngine.Shader" preserve="all" />
+    <type fullname="UnityEngine.Sprite" preserve="all" />
+    <type fullname="UnityEngine.SpriteRenderer" preserve="all" />
+    <type fullname="UnityEngine.TextAsset" preserve="all" />
+    <type fullname="UnityEngine.Texture2D" preserve="all" />
+    <type fullname="UnityEngine.TrailRenderer" preserve="all" />
+    <type fullname="UnityEngine.Transform" preserve="all" />
+    <type fullname="UnityEngine.U2D.SpriteAtlas" preserve="all" />
+    <type fullname="UnityEngine.Events.PersistentCallGroup" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.RectOffset" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.ParticleSystem" preserve="all" />
+    <type fullname="UnityEngine.ParticleSystemRenderer" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Font" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.UI.AspectRatioFitter" preserve="all" />
+    <type fullname="UnityEngine.UI.Button" preserve="all" />
+    <type fullname="UnityEngine.UI.CanvasScaler" preserve="all" />
+    <type fullname="UnityEngine.UI.ContentSizeFitter" preserve="all" />
+    <type fullname="UnityEngine.UI.GraphicRaycaster" preserve="all" />
+    <type fullname="UnityEngine.UI.GridLayoutGroup" preserve="all" />
+    <type fullname="UnityEngine.UI.HorizontalLayoutGroup" preserve="all" />
+    <type fullname="UnityEngine.UI.Image" preserve="all" />
+    <type fullname="UnityEngine.UI.LayoutElement" preserve="all" />
+    <type fullname="UnityEngine.UI.Mask" preserve="all" />
+    <type fullname="UnityEngine.UI.RectMask2D" preserve="all" />
+    <type fullname="UnityEngine.UI.Scrollbar" preserve="all" />
+    <type fullname="UnityEngine.UI.ScrollRect" preserve="all" />
+    <type fullname="UnityEngine.UI.Slider" preserve="all" />
+    <type fullname="UnityEngine.UI.Toggle" preserve="all" />
+    <type fullname="UnityEngine.UI.VerticalLayoutGroup" preserve="all" />
+    <type fullname="UnityEngine.UI.AnimationTriggers" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.Button/ButtonClickedEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.ColorBlock" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.MaskableGraphic/CullStateChangedEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.Navigation" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.ScrollRect/ScrollRectEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.Scrollbar/ScrollEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.Slider/SliderEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.SpriteState" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.Toggle/ToggleEvent" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Canvas" preserve="all" />
+    <type fullname="UnityEngine.CanvasGroup" preserve="all" />
+    <type fullname="UnityEngine.CanvasRenderer" preserve="all" />
+  </assembly>
+  <assembly fullname="Battle.Rules">
+    <type fullname="FalconSurvivor.Battle.Rules.Characters.CharacterMoveDeflectionSettings" preserve="nothing" serialized="true" />
+    <type fullname="FalconSurvivor.Battle.Rules.Feedback.CharacterHitFlashSettings" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="UnityEngine.TextCoreFontEngineModule">
+    <type fullname="UnityEngine.TextCore.FaceInfo" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.TextCore.Glyph" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.TextCore.GlyphMetrics" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.TextCore.GlyphRect" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.TextCore.LowLevel.GlyphAdjustmentRecord" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.TextCore.LowLevel.GlyphPairAdjustmentRecord" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.TextCore.LowLevel.GlyphValueRecord" preserve="nothing" serialized="true" />
+  </assembly>
+</linker>
