@@ -103,7 +103,7 @@
       window.falconTextureVariant = textureVariant;
 
       var buildUrl = "Build";
-      var dxtData = buildUrl + "/0b4f270a313764eb8aaf9b7f0404618f.data.br";
+      var dxtData = buildUrl + "/4bc3abfbba28f5d6fb399b93a1ee151c.data.br";
 
       // The ASTC data file: the CrazySDK release build lists it in crazygames_build_report.json ("astc_<hash>"); the
       // phone build pairs it as "<name>-astc.data" with packs in StreamingAssets-astc. A missing file falls back to DXT.
@@ -137,12 +137,12 @@
 
       var config = {
         dataUrl: dxtData,
-        frameworkUrl: buildUrl + "/aca5937612668b118e8a25f1920abaaf.framework.js.br",
-        codeUrl: buildUrl + "/fdb92158bee71a47cdc179e1a437b584.wasm.br",
+        frameworkUrl: buildUrl + "/9960e920fb6e6c1dee0f0462692219d4.framework.js.br",
+        codeUrl: buildUrl + "/fce77fd4accbf1927a7d174e3a89fcf2.wasm.br",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Breach Games",
         productName: "Dragon Survivor",
-        productVersion: "1.1.7",
+        productVersion: "1.1.4",
         showBanner: showBanner,
         // Local saves under Application.persistentDataPath persist in IndexedDB without a manual FS sync.
         autoSyncPersistentDataPath: true,
@@ -186,7 +186,7 @@
       })();
 
       var script = document.createElement("script");
-      script.src = buildUrl + "/cf6b3044e681e18c17fc8358614836c0.loader.js";
+      script.src = buildUrl + "/f64b49c9c6d6a70bbd76e02957019d22.loader.js";
       script.onload = function () {
         createUnityInstance(canvas, config, function (progress) {
           loadingFill.style.width = 100 * progress + "%";
